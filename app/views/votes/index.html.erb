@@ -1,5 +1,16 @@
 <div class= "container">
-<h1>Listing votes</h1>
+<div class= "container">
+<div class="jumbotron">
+  <div class="row">
+  <div class="col-lg-8">
+    <h1>Votes</h1>
+    <%= link_to 'New Vote', new_vote_path, class:"btn btn-success btn-lg"%>
+  </div>
+  <div class="col-lg-2">
+    <%= image_tag("ZeldaLogo.jpg", :size => "281x209") %>
+  </div>
+</div>
+</div>
 
 <table class="table table-striped">
   <thead>
@@ -26,6 +37,4 @@
 </table>
 
 <br>
-
-<%= link_to 'New Vote', new_vote_path %>
 </div>
