@@ -1,0 +1,16 @@
+<div class= "container">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @vote.user.username %>
+</p>
+
+<p>
+  <strong>Game:</strong>
+  <%= @vote.game.name %>
+</p>
+
+<%= link_to 'Edit', edit_vote_path(@vote) %> |
+<%= link_to 'Back', votes_path %>
+</div>

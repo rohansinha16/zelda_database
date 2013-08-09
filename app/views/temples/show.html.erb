@@ -1,0 +1,63 @@
+<div class= "container">
+<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+  <div class="row">
+  <div class="col-lg-8">
+    <h1><%= @temple.name %></h1>
+    <p> The <%= @temple.name %> is the 
+      <% if @temple.order==1 %>
+        1st
+      <% elsif @temple.order==2 %>
+        2nd
+      <% elsif @temple.order==3 %>
+        3rd
+      <% else %>
+        <%=@temple.order%>th
+      <% end %>
+      temple in <%= link_to @temple.game.name, game_url(@temple.game.id)  %>.
+    </p>
+  </div>
+  <div class="col-lg-2">
+    <img src="<%= @temple.picture_url %>" height="200" width="300"> </img>
+  </div>
+</div>
+
+  <div class="row">
+  <div class="col-lg-3">
+    <p>
+    <strong>Item:</strong>
+    <% @temple.items.each do |item| %>
+      <%= link_to item.name, item_url(item.id)  %>
+    <%end%>
+  </p>
+  </div>
+  <div class="col-lg-3">
+    <p>
+      <strong>Boss:</strong>
+      <%= @temple.boss %>
+    </p>
+  </div>
+  <div class="col-lg-3">
+    <p>
+    <strong>Mini boss:</strong>
+    <%= @temple.mini_boss %>
+    </p>
+  </div>
+</div>
+</div>
+
+
+<p>
+    <strong>Description:</strong>
+    <% @temple.description.split("\n").each do |paragraph| %>
+    <br>
+    &nbsp; &nbsp; &nbsp; &nbsp; <%= paragraph %>
+    </br>
+    <% end %>
+  </p>
+
+<div class="btn-group">
+  <%= link_to 'Edit', edit_temple_path(@temple), class:"btn btn-warning" %>
+  <%= link_to 'Back', temples_path, class:"btn btn-primary" %>
+</div>
+</div>

@@ -1,0 +1,69 @@
+<div class= "container">
+<p id="notice"><%= notice %></p>
+
+<div class="jumbotron">
+  <h1><%= @game.name %></h1>
+  <div align="center">
+  <p>
+    <iframe width="560" height="315" src="//www.youtube.com/embed/<%= @game.trailer_url.split("=")[1] %>" frameborder="0" allowfullscreen align:center></iframe>
+  </p>
+  <div class="btn-group">
+    <% if(@game.emulator_url!=""||@game.rom_url!="") %>
+      <a href= <%=@game.emulator_url %> class="btn btn-default btn-lg">Emulator URL</a>
+      <a href= <%= @game.rom_url %> class="btn btn-default btn-lg">Rom URL</a>
+    <% else%>
+      <p>Emulator or Rom not yet Available</p>
+    <%end%>
+  </div>
+</div>
+</div>
+  <p>
+    <strong>Description:</strong>
+    <% @game.description.split("\n").each do |paragraph| %>
+    <br>
+    &nbsp; &nbsp; &nbsp; &nbsp; <%= paragraph %>
+    </br>
+    <% end %>
+  </p>
+<div class="row">
+<div class="col-lg-5">
+  <p>
+    <strong>Temples</strong>
+  <ul>
+  <% @game.temples.each do |temple| %>
+      <li>
+      <%= link_to temple.name, temple_url(temple.id)  %>
+      </li>
+  <% end %>
+</ul>
+</p>
+</div>
+<div class="col-lg-5">
+    <p>
+    <strong>Items</strong>
+  <ul>
+  <% @game.temples.each do |temple| %>
+    <% temple.items.each do |item| %>
+      <li>
+      <%= link_to item.name, item_url(item.id)  %>
+      </li>
+    <%end%>
+  <% end %>
+</ul>
+</p>
+</ul>
+</p>
+</div>
+</div>
+  <p><strong>Votes:</strong>
+      <ul>
+      <% @game.votes.each do |vote| %>
+        <li><%=vote.user.username%></li>
+      <%end%>
+    </ul>
+  </p>
+<div class="btn-group">
+  <a href= <%= edit_game_path(@game) %> class="btn btn-warning btn-lg">Edit</a>
+  <a href="/games" class="btn btn-primary btn-lg">Back</a>
+</div>
+</div>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  trailer_url: MyString
+  description: MyText
+  emulator_url: MyString
+  rom_url: MyString
+  released: 1
+  station: MyString
+
+two:
+  name: MyString
+  trailer_url: MyString
+  description: MyText
+  emulator_url: MyString
+  rom_url: MyString
+  released: 1
+  station: MyString
